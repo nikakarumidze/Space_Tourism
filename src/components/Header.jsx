@@ -16,19 +16,55 @@ import dropup from '../assets/shared/icon-close.svg';
 
 const Header = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
 
-  const menuData = ['00 Home', '01 Destination', '02 Crew', '03 Technology'];
+  const menuData = ['00 HOME', '01 DESTINATION', '02 CREW', '03 TECHNOLOGY'];
+  const selectChanger = (e, index) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+  }
 
-  const inputLarge = menuData.map((item) => (
-    <Typography component='h3' variant='caption' key={item} sx={{m:2, color:'white'}}>
-      {item}
-    </Typography>
+  const inputLarge = menuData.map((item, index) => (
+    <MenuItem
+      key={item}
+      selected={index === selectedIndex}
+      onClick={(e) => selectChanger(e,index)}
+      sx={{
+        boxSizing: 'border-box',
+        height: 80,
+        '&.Mui-selected': {
+          color: 'white',
+          borderBottom: 'solid white 1px'
+        }
+    }}
+    >
+      <Typography
+        component='h3'
+        variant='caption'
+        sx={[
+          {
+            p: 3,
+            color: 'white',
+            '&:hover': {
+              borderBottom: 'solid grey 0.7px',
+            },
+          },
+          // Only underline current location nav item.
+          // {props.location}===item && {
+          //   borderBottom: 'solid white 2px'
+          // }
+        ]}
+      >
+        {item}
+      </Typography>
+    </MenuItem>
   ));
   const inputSmall = menuData.map((item) => (
-    <MenuItem key={item} onClick={(e)=> console.log(item,e)}>{item}</MenuItem>
+    <MenuItem key={item} onClick={(e) => console.log(item, e)}>
+      {item}
+    </MenuItem>
   ));
   const smallScreen = (
     <>
@@ -40,22 +76,16 @@ const Header = (props) => {
         onClick={handleClick}
       >
         {!open ? (
-          <CardMedia
-            image={dropdown}
-            sx={{ width: 26, height: 26 }}
-          />
+          <CardMedia image={dropdown} sx={{ width: 26, height: 26 }} />
         ) : (
-          <CardMedia
-            image={dropup}
-            sx={{ width: 26, height: 26 }}
-          />
+          <CardMedia image={dropup} sx={{ width: 26, height: 26 }} />
         )}
       </Button>
       <Menu
         id='basic-menu'
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={() => setAnchorEl(null)}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
@@ -67,16 +97,20 @@ const Header = (props) => {
 
   return (
     <AppBar position='static' sx={{ mb: 4, background: 'none', boxShadow: 0 }}>
-      <Toolbar
-        variant='regular'
-        sx={{ justifyContent: 'space-between' }}
-      >
-        <CardMedia
-          image={logo}
-          sx={{ width: 48, height: 48, margin: 1}}
-        />
+      <Toolbar variant='regular' sx={{ justifyContent: 'space-between' }}>
+        <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
         <Divider orientation='vertical' />
-        <Box sx={{ display: { xs: 'none', sm: 'flex', background: 'rgba(255, 255, 255, 0.04)' } }}>{inputLarge}</Box>
+        <Box
+          sx={{
+            display: {
+              xs: 'none',
+              sm: 'flex',
+              background: 'rgba(255, 255, 255, 0.04)',
+            },
+          }}
+        >
+          {inputLarge}
+        </Box>
         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>{smallScreen}</Box>
       </Toolbar>
     </AppBar>

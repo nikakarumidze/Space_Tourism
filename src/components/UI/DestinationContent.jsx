@@ -13,10 +13,30 @@ const DestinationContent = (props) => {
   const [current, setCurrent] = useState('moon');
   const currentChanger = (e, clickedVal) => {
     if (clickedVal) {
-        setCurrent(clickedVal)
-        props.onSelect(clickedVal);
+      setCurrent(clickedVal)
+      props.onSelect(clickedVal);
     }
   };
+  const buttonInput = ['moon','mars','europa','titan']
+  const toggleButtons = buttonInput.map(item => (
+  <ToggleButton value={item} key={item}  sx={{
+    mx:1,
+    color: 'white',
+    border: 'none',
+    borderRadius: 0,
+    '&:hover': {
+    borderBottom: 'solid grey 0.7px',
+    },
+    '&.Mui-selected': {
+      color: 'white',
+      borderBottom: 'solid white 1px'
+    }
+  }}>
+    <Typography variant='caption'>
+      {item.toUpperCase()}
+    </Typography>
+  </ToggleButton>
+  ))
   return (
     <Grid container spacing={5}>
       <Grid item xs={12} lg={5}>
@@ -26,9 +46,9 @@ const DestinationContent = (props) => {
           alt='Place for content image'
           sx={{
             width: {
-                xs: '170px',
-                md: '300px',
-                lg:'445px'
+              xs: '170px',
+              md: '300px',
+              lg:'445px'
             }
           }}
         />
@@ -39,14 +59,12 @@ const DestinationContent = (props) => {
             value={current}
             exclusive
             onChange={currentChanger}
+            sx={{boxSizing: 'border-box', height: 50}}
           >
-            <ToggleButton value='moon' variant='caption'>MOON</ToggleButton>
-            <ToggleButton value='mars'>MARS</ToggleButton>
-            <ToggleButton value='europa'>EUROPA</ToggleButton>
-            <ToggleButton value='titan'>TITAN</ToggleButton>
+            {toggleButtons}
           </ToggleButtonGroup>
-          <Typography component='h1' variant='h1' sx={{m:2,color:'white'}}>{current.toUpperCase()}</Typography>
-          <Typography sx={{m:3, color:'secondary.main'}}>{props.description}</Typography>
+          <Typography component='h1' variant='h1' sx={{color:'white'}}>{current.toUpperCase()}</Typography>
+          <Typography sx={{my:2, color:'secondary.main'}}>{props.description}</Typography>
         </Box>
         <Divider sx={{background: '#383B4B'}}/>
         <Box sx={{ display: 'flex', flexDirection: {xs: 'column', md:'row'}, justifyContent: 'space-evenly', alignItems: 'center', mt:3 }}>

@@ -8,11 +8,12 @@ import desktopImage from './assets/home/background-home-desktop.jpg';
 import Destination from './pages/Destination';
 import { ThemeProvider } from '@emotion/react';
 import { DefaultTheme } from './DefaultTheme';
+import Crew from './pages/Crew';
 
 function App() {
   const styles = {
     main: {
-      height: '100%',
+      minHeight: '100%',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
@@ -32,7 +33,8 @@ function App() {
       >
         <Header />
         {/* <Main /> */}
-        <Destination />
+        {/* <Destination /> */}
+        {<Crew />}
       </Box>
     </ThemeProvider>
   );

@@ -28,8 +28,8 @@ const base ={
   },
   titan: {
     body: 'Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!',
-    distance: '225 mil. km',
-    travelTime: '9 MONTHS',
+    distance: '1.6 bil. km',
+    travelTime: '7 YEARS',
     image: titan,
   },
 };
@@ -38,7 +38,7 @@ const Destination = () => {
   const [content, setContent] = useState('moon');
   const selectorChanger = (curr) => setContent(curr);
   return (
-    <Box sx={{m:4}}>
+      <Box sx={{mx:4}}>
       <Stack direction='row' spacing={1} sx={{mb:3}}>
         <Typography component='span' variant='h5' sx={{color:'grey'}}>01</Typography>
         <Typography component='h2' variant='h5' sx={{color:'white'}}>
