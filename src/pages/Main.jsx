@@ -1,15 +1,10 @@
-import { Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Grid, Typography, Box } from '@mui/material';
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const Main = (props) => {
   return (
-    <Grid
-      container
-      alignItems='center'
-      justifyContent='space-between'
-      py={10}
-    >
+    <Grid container alignItems='center' justifyContent='space-between' py={10}>
       <Grid item xs={12} lg={5} sx={{ m: 5 }}>
         <Typography variant='h4' component='h2' sx={{ color: 'white' }}>
           SO, YOU WANT TO TRAVEL TO
@@ -24,26 +19,38 @@ const Main = (props) => {
           experience!
         </Typography>
       </Grid>
-      <Grid item xs={12} lg={5} 
-            sx={{display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'}}
-            >
-        <Box
-          sx={{
-            width: 274,
-            height: 274,
-            background: 'white',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Typography variant='h5' component='h2'>
-            EXPLORE
-          </Typography>
-        </Box>
+      <Grid
+        item
+        xs={12}
+        lg={5}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Link to='/destination'>
+          <Box
+            sx={{
+              width: 274,
+              height: 274,
+              background: 'white',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              '& :hover': {
+                background: 'whitesmoke',
+                // need to add hover effect
+              },
+            }}
+          >
+            <Typography variant='h5' component='h2'>
+              EXPLORE
+            </Typography>
+          </Box>
+        </Link>
       </Grid>
     </Grid>
   );

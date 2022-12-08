@@ -38,7 +38,7 @@ const Destination = () => {
   const [content, setContent] = useState('moon');
   const selectorChanger = (curr) => setContent(curr);
   return (
-      <Box sx={{mx:4}}>
+      <>
       <Stack direction='row' spacing={1} sx={{mb:3}}>
         <Typography component='span' variant='h5' sx={{color:'grey'}}>01</Typography>
         <Typography component='h2' variant='h5' sx={{color:'white'}}>
@@ -52,7 +52,7 @@ const Destination = () => {
         travelTime={base[content].travelTime}
         onSelect={selectorChanger}
       />
-    </Box>
+    </>
   );
 };
 

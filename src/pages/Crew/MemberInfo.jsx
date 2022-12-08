@@ -1,20 +1,21 @@
 import { CardMedia, Grid, Stack, Typography } from '@mui/material';
+import NavButton from './NavButton';
 
 const MemberInfo = (props) => {
   return (
     <Grid
       container
       spacing={4}
-      justifyContent='center'
-      sx={{ mx: 2, width: 'auto' }}
+      justifyContent='space-between'
+      sx={{width: 'auto' }}
     >
       <Grid item md={12} lg={5}>
         <Stack direction='row' spacing={1} sx={{ mb: 12 }}>
-          <Typography component='span' variant='h5' sx={{ color: 'grey' }}>
-            01
+          <Typography component='span' variant='h5' sx={{ color: 'grey'}}>
+            02
           </Typography>
           <Typography component='h2' variant='h5' sx={{ color: 'white' }}>
-            PICK YOUR DESTINATION
+            MEET YOUR CREW
           </Typography>
         </Stack>
         <Stack spacing={2}>
@@ -25,6 +26,7 @@ const MemberInfo = (props) => {
           <Typography variant='body1' sx={{ color: 'secondary.main' }}>
             {props.description}
           </Typography>
+          <NavButton />
         </Stack>
       </Grid>
       <Grid item md={12} lg={5} justifyContent='center'>
