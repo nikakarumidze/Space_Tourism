@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import ContentPlace from './Technology/ContentPlace';
@@ -7,6 +7,8 @@ import TechnologyContext from './Technology/TechnologyContext';
 
 const Technology = () => {
   const [index, setIndex] = useState(0);
+  const theme = useTheme();
+  const bigResolution = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <TechnologyContext.Provider value={{ index, setIndex }}>
       <Stack direction='row' spacing={1} sx={{ mb: 2 }}>
@@ -20,7 +22,7 @@ const Technology = () => {
       <ContentPlace
         name={TechnologyData[index].name}
         description={TechnologyData[index].description}
-        image={TechnologyData[index].images.portrait}
+        image={bigResolution ? TechnologyData[index].images.portrait : TechnologyData[index].images.landscape}
       />
     </TechnologyContext.Provider>
   );

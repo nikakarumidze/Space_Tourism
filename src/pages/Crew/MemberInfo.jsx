@@ -35,7 +35,8 @@ const MemberInfo = (props) => {
           image={props.image}
           alt='Place for content image'
           sx={{
-            objectFit: 'contain'
+            objectFit: 'contain',
+            overFlow: 'hidden'
           }}
         />
       </Grid>

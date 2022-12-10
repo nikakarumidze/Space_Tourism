@@ -13,7 +13,7 @@ import { images } from './Images';
 function App() {
   let { pathname: location } = useLocation();
   if (images[location] === undefined) location = '/';
-  
+
   const styles = {
     main: {
       minHeight: '100%',

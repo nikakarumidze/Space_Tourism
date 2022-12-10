@@ -10,7 +10,11 @@ const NavigationBar = () => {
       exclusive
       value={index}
       onChange={(e, curr) => curr !== null && setIndex(curr)}
-      orientation='vertical'
+      sx={{flexDirection: {
+        sx: 'row',
+        md: 'column',
+        margin: 'auto'
+      }}}
     >
       {values.map((val) => (
         <ToggleButton value={val} key={val} size='large' sx={{border: 0}}>

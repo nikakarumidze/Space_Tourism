@@ -4,8 +4,12 @@ import {
   Button,
   CardMedia,
   Divider,
+  List,
+  ListItem,
+  ListItemText,
   Menu,
   MenuItem,
+  SwipeableDrawer,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -36,7 +40,7 @@ const Header = (props) => {
         onClick={(e) => selectChanger(e, index)}
         sx={{
           boxSizing: 'border-box',
-          height: 65,
+          height: 60,
           '&.Mui-selected': {
             color: 'white',
             borderBottom: 'solid white 1.5px',
@@ -45,13 +49,14 @@ const Header = (props) => {
       >
         <Typography
           component='h3'
-          variant='caption'
+          variant='subtitle2'
           sx={[
             {
-              p: 2,
+              p: { xs: 0, md: 2 },
               color: 'white',
               '&:hover': {
-                borderBottom: linkData[index] !== location.pathname && 'solid grey 1.5px',
+                borderBottom:
+                  linkData[index] !== location.pathname && 'solid grey 1.5px',
               },
             },
           ]}
@@ -62,12 +67,14 @@ const Header = (props) => {
     </Link>
   ));
   const inputSmall = menuData.map((item, index) => (
-    <Link to={linkData[index]} key={item} onClick={()=>setAnchorEl(null)}>
-      <MenuItem>
-        <Typography variant='caption' component='h3' sx={{color: 'white'}}>
-          {item}
-        </Typography>
-      </MenuItem>
+    <Link to={linkData[index]} key={item} onClick={() => setAnchorEl(null)}>
+      <ListItem>
+        <ListItemText>
+          <Typography variant='caption' component='h3' sx={{ color: 'white' }}>
+            {item}
+          </Typography>
+        </ListItemText>
+      </ListItem>
     </Link>
   ));
   const smallScreen = (
@@ -79,30 +86,38 @@ const Header = (props) => {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        {!open ? (
-          <CardMedia image={dropdown} sx={{ width: 26, height: 26 }} />
-        ) : (
-          <CardMedia image={dropup} sx={{ width: 26, height: 26 }} />
-        )}
+        {!open && <CardMedia image={dropdown} sx={{ width: 26, height: 26 }} />}
       </Button>
-      <Menu
-        id='basic-menu'
-        anchorEl={anchorEl}
+      <SwipeableDrawer
+        anchor='right'
         open={open}
         onClose={() => setAnchorEl(null)}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
+        onOpen={() => setAnchorEl(true)}
+        sx={{
+          '& .MuiDrawer-paper': {
+            backdropFilter: 'blur(40px)',
+            backgroundColor: 'transparent',
+          },
         }}
       >
-        {inputSmall}
-      </Menu>
+        <List>
+          <CardMedia
+            image={dropup}
+            sx={{ width: 26, height: 26, mb: 4, mr: 2, ml: 'auto', mt: 1 }}
+            onClick={() => setAnchorEl(null)}
+          />
+          {inputSmall}
+        </List>
+      </SwipeableDrawer>
     </>
   );
 
   return (
     <AppBar position='static' sx={{ mb: 3, background: 'none', boxShadow: 0 }}>
       <Toolbar variant='regular' sx={{ justifyContent: 'space-between' }}>
-        <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
+        <Link to='/'>
+          <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
+        </Link>
         <Divider orientation='vertical' />
         <Box
           sx={{

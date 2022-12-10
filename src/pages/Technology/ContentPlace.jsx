@@ -3,11 +3,23 @@ import NavigationBar from './NavigationBar';
 
 const ContentPlace = (props) => {
   return (
-    <Grid container spacing={5} alignItems="center">
-        <Grid container item xs={12} lg={2} justifyContent='flex-end'>
+    <Grid
+      container
+      alignItems='center'
+      justifyContent='space-between'
+      sx={{
+        m: 0,
+        flexDirection: {
+          xs: 'column-reverse',
+          md: 'row',
+        },
+      }}
+    >
+      <Grid container item xs={12} md={7} justifyContent='space-around'>
+        <Grid container item xs={12} md={2}>
           <NavigationBar />
         </Grid>
-        <Grid container item xs={12} lg={5} direction='column'>
+        <Grid container item xs={12} md={9} direction='column' sx={{m:1}}>
           <Typography variant='caption' sx={{ color: 'secondary.main' }}>
             THE TERMINOLOGY ...
           </Typography>
@@ -18,20 +30,13 @@ const ContentPlace = (props) => {
             {props.description}
           </Typography>
         </Grid>
-
-        <Grid item xs={12} lg={5}>
-          <CardMedia
-            component='img'
-            //   image={props.image}
-            sx={{ 
-                background: `url(${props.image})`,
-                height: '500px',
-                objectFit: 'contain'
-             }}
-          />
-        </Grid>
       </Grid>
-  )
-}
 
-export default ContentPlace
+      <Grid container item xs={12} md={5} sx={{ my: { xs: 2, md: 0 } }}>
+        <CardMedia component='img' image={props.image} sx={{ width: '100%' }} />
+      </Grid>
+    </Grid>
+  );
+};
+
+export default ContentPlace;

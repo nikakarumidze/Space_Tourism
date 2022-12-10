@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Main = (props) => {
   return (
-    <Grid container alignItems='center' justifyContent='space-between' py={10}>
+    <Grid container alignItems='center' justifyContent='space-between' sx={{py:{xs:0,md:8}}} >
       <Grid item xs={12} lg={5} sx={{ m: 5 }}>
         <Typography variant='h4' component='h2' sx={{ color: 'white' }}>
           SO, YOU WANT TO TRAVEL TO
