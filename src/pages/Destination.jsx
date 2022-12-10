@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DestinationContent from '../components/UI/DestinationContent';
+import DestinationContent from './Destination/DestinationContent';
 import { Box, Typography } from '@mui/material';
 import moon from '../assets/destination/image-moon.png';
 import mars from '../assets/destination/image-mars.png';
