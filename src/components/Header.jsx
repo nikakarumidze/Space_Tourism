@@ -41,6 +41,7 @@ const Header = (props) => {
         sx={{
           boxSizing: 'border-box',
           height: 60,
+          p: { xs: 1, md: 2 },
           '&.Mui-selected': {
             color: 'white',
             borderBottom: 'solid white 1.5px',
@@ -113,8 +114,16 @@ const Header = (props) => {
   );
 
   return (
-    <AppBar position='static' sx={{ mb: 3, background: 'none', boxShadow: 0 }}>
-      <Toolbar variant='regular' sx={{ justifyContent: 'space-between' }}>
+    <AppBar position='sticky' sx={{ mb: 3, background: 'none', boxShadow: 0 , backdropFilter: 'blur(2px)',}}>
+      <Toolbar
+        variant='regular'
+        sx={{
+          justifyContent: 'space-between',
+          pl: '5px !important',
+          pr: '0px !important',
+          pt: 1,
+        }}
+      >
         <Link to='/'>
           <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
         </Link>

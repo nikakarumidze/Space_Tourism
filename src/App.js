@@ -18,7 +18,6 @@ function App() {
     main: {
       minHeight: '100%',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
       backgroundSize: 'cover',
     },
   };
@@ -29,13 +28,13 @@ function App() {
         sx={{
           backgroundImage: {
             xs: `url(${images[location].xs})`,
-            md: `url(${images[location].md})`,
-            lg: `url(${images[location].lg})`,
+            sm: `url(${images[location].md})`,
+            md: `url(${images[location].lg})`,
           },
         }}
       >
         <Header />
-        <Box sx={{ mx: 5 }}>
+        <Box sx={{ mx: { xs: 2, md: 3, lg: 4 } }}>
           <Routes>
             <Route index element={<Main />} />
             <Route path='/destination' element={<Destination />} />

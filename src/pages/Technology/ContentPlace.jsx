@@ -19,7 +19,14 @@ const ContentPlace = (props) => {
         <Grid container item xs={12} md={2}>
           <NavigationBar />
         </Grid>
-        <Grid container item xs={12} md={9} direction='column' sx={{m:1}}>
+        <Grid
+          container
+          item
+          xs={12}
+          md={9}
+          direction='column'
+          sx={{ m: 1, alignItems: { xs: 'center', md: 'start' } }}
+        >
           <Typography variant='caption' sx={{ color: 'secondary.main' }}>
             THE TERMINOLOGY ...
           </Typography>

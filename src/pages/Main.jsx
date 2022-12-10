@@ -34,6 +34,7 @@ const Main = (props) => {
             sx={{
               width: 274,
               height: 274,
+              mb:2,
               background: 'white',
               borderRadius: '50%',
               display: 'flex',
