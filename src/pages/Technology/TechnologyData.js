@@ -5,7 +5,7 @@ import portLandscape from '../../assets/technology/image-spaceport-landscape.jpg
 import capsulePortrait from '../../assets/technology/image-space-capsule-portrait.jpg';
 import capsuleLandscape from '../../assets/technology/image-space-capsule-landscape.jpg';
 
-export const TechnologyData = [
+export const TechData = [
   {
     name: 'Launch vehicle',
     images: {

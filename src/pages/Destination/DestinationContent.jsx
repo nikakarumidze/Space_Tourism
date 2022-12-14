@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 
+const buttonInput = ['moon', 'mars', 'europa', 'titan'];
+
 const DestinationContent = (props) => {
   const [current, setCurrent] = useState('moon');
   const currentChanger = (e, clickedVal) => {
@@ -17,7 +19,6 @@ const DestinationContent = (props) => {
       props.onSelect(clickedVal);
     }
   };
-  const buttonInput = ['moon', 'mars', 'europa', 'titan'];
   const toggleButtons = buttonInput.map((item) => (
     <ToggleButton
       value={item}

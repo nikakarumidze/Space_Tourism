@@ -1,10 +1,14 @@
 import { Grid, Typography, Box } from '@mui/material';
-import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-const Main = (props) => {
+const Main = () => {
   return (
-    <Grid container alignItems='center' justifyContent='space-between' sx={{py:{xs:0,md:8}}} >
+    <Grid
+      container
+      alignItems='center'
+      justifyContent='space-between'
+      sx={{ py: { xs: 0, md: 8 } }}
+    >
       <Grid item xs={12} lg={5} sx={{ m: 5 }}>
         <Typography variant='h4' component='h2' sx={{ color: 'white' }}>
           SO, YOU WANT TO TRAVEL TO
@@ -34,16 +38,15 @@ const Main = (props) => {
             sx={{
               width: 274,
               height: 274,
-              mb:2,
+              mb: 2,
               background: 'white',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              '& :hover': {
-                background: 'whitesmoke',
-                // need to add hover effect
+              '&:hover': {
+                outline: '80px solid rgb(60, 60, 60)',
               },
             }}
           >

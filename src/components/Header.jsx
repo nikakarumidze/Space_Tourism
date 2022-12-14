@@ -7,7 +7,6 @@ import {
   List,
   ListItem,
   ListItemText,
-  Menu,
   MenuItem,
   SwipeableDrawer,
   Toolbar,
@@ -19,25 +18,19 @@ import dropdown from '../assets/shared/icon-hamburger.svg';
 import dropup from '../assets/shared/icon-close.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const location = useLocation();
   const open = Boolean(anchorEl);
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
 
   const menuData = ['00 HOME', '01 DESTINATION', '02 CREW', '03 TECHNOLOGY'];
   const linkData = ['/', '/destination', '/crew', '/technology'];
-  const selectChanger = (e, index) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-  };
 
   const inputLarge = menuData.map((item, index) => (
     <Link to={linkData[index]} key={item}>
       <MenuItem
         selected={linkData[index] === location.pathname}
-        onClick={(e) => selectChanger(e, index)}
+        onClick={() => setAnchorEl(null)}
         sx={{
           boxSizing: 'border-box',
           height: 60,
@@ -85,7 +78,7 @@ const Header = (props) => {
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
+        onClick={(e) => setAnchorEl(e.currentTarget)}
       >
         {!open && <CardMedia image={dropdown} sx={{ width: 26, height: 26 }} />}
       </Button>
@@ -114,7 +107,15 @@ const Header = (props) => {
   );
 
   return (
-    <AppBar position='sticky' sx={{ mb: 3, background: 'none', boxShadow: 0 , backdropFilter: 'blur(2px)',}}>
+    <AppBar
+      position='sticky'
+      sx={{
+        mb: 3,
+        background: 'none',
+        boxShadow: 0,
+        backdropFilter: 'blur(2px)',
+      }}
+    >
       <Toolbar
         variant='regular'
         sx={{
@@ -127,7 +128,12 @@ const Header = (props) => {
         <Link to='/'>
           <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
         </Link>
-        <Divider orientation='vertical' />
+        <Divider
+          sx={{
+            backgroundColor: 'grey',
+            width: { xs: 0, lg: '35%' },
+          }}
+        />
         <Box
           sx={{
             display: {
