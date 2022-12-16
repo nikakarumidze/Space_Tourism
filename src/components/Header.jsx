@@ -136,7 +136,7 @@ const Header = (props) => {
           pt: 1,
         }}
       >
-        <Link to='/'>
+        <Link to='/' onClick={() => props.onURLChange('/')}>
           <CardMedia image={logo} sx={{ width: 48, height: 48, margin: 1 }} />
         </Link>
         <Divider
