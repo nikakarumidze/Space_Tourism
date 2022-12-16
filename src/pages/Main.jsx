@@ -1,7 +1,7 @@
 import { Grid, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Main = () => {
+const Main = (props) => {
   return (
     <Grid
       container
@@ -33,7 +33,7 @@ const Main = () => {
           justifyContent: 'center',
         }}
       >
-        <Link to='/destination'>
+        <Link to='/destination' onClick={() => props.onURLChange('/destination')}>
           <Box
             sx={{
               width: 274,
@@ -46,11 +46,15 @@ const Main = () => {
               justifyContent: 'center',
               cursor: 'pointer',
               '&:hover': {
-                outline: '80px solid rgb(60, 60, 60)',
+                outline: { lg: '80px solid rgb(60, 60, 60)' },
               },
             }}
           >
-            <Typography variant='h5' component='h2'>
+            <Typography
+              variant='h5'
+              component='h2'
+              sx={{ color: 'black !important' }}
+            >
               EXPLORE
             </Typography>
           </Box>

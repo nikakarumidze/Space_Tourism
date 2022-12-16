@@ -40,10 +40,10 @@ const MemberInfo = (props) => {
             direction='column'
             sx={{ mb: 5 }}
           >
-            <Typography variant='h4' sx={{ mt: 5 }}>
+            <Typography variant='h4' sx={{ mt: 5, color: 'grey !important' }}>
               {props.position.toUpperCase()}
             </Typography>
-            <Typography variant='h3' sx={{ color: 'white', my: 1 }}>
+            <Typography variant='h3' sx={{ color: 'white', my: 2 }}>
               {props.name.toUpperCase()}
             </Typography>
             <Typography variant='body1' sx={{ color: 'secondary.main' }}>
@@ -66,7 +66,7 @@ const MemberInfo = (props) => {
             image={props.image}
             alt='Place for content image'
             sx={{
-              width: '70%',
+              width: '75%',
               objectFit: 'contain',
               overFlow: 'hidden',
             }}

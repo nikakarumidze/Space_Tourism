@@ -18,7 +18,7 @@ import dropdown from '../assets/shared/icon-hamburger.svg';
 import dropup from '../assets/shared/icon-close.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const location = useLocation();
   const open = Boolean(anchorEl);
@@ -27,7 +27,11 @@ const Header = () => {
   const linkData = ['/', '/destination', '/crew', '/technology'];
 
   const inputLarge = menuData.map((item, index) => (
-    <Link to={linkData[index]} key={item}>
+    <Link
+      to={linkData[index]}
+      key={item}
+      onClick={() => props.onURLChange(linkData[index])}
+    >
       <MenuItem
         selected={linkData[index] === location.pathname}
         onClick={() => setAnchorEl(null)}
@@ -61,7 +65,14 @@ const Header = () => {
     </Link>
   ));
   const inputSmall = menuData.map((item, index) => (
-    <Link to={linkData[index]} key={item} onClick={() => setAnchorEl(null)}>
+    <Link
+      to={linkData[index]}
+      key={item}
+      onClick={() => {
+        setAnchorEl(null);
+        props.onURLChange(linkData[index]);
+      }}
+    >
       <ListItem>
         <ListItemText>
           <Typography variant='caption' component='h3' sx={{ color: 'white' }}>

@@ -6,12 +6,12 @@ import Technology from './pages/Technology';
 import { Box } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import { DefaultTheme } from './DefaultTheme';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { images } from './Images';
+import { useState } from 'react';
 
 function App() {
-  let { pathname: location } = useLocation();
-  if (images[location] === undefined) location = '/';
+  const [pathname, setPathname] = useState('/');
 
   const styles = {
     main: {
@@ -26,16 +26,19 @@ function App() {
         style={styles.main}
         sx={{
           backgroundImage: {
-            xs: `url(${images[location].xs})`,
-            sm: `url(${images[location].md})`,
-            md: `url(${images[location].lg})`,
+            xs: `url(${images[pathname].xs})`,
+            sm: `url(${images[pathname].md})`,
+            md: `url(${images[pathname].lg})`,
           },
         }}
       >
-        <Header />
+        <Header onURLChange={(path) => setPathname(path)} />
         <Box sx={{ mx: { xs: 2, md: 3, lg: 4 } }}>
           <Routes>
-            <Route path='/' element={<Main />} />
+            <Route
+              path='/'
+              element={<Main onURLChange={(path) => setPathname(path)} />}
+            />
             <Route path='/destination' element={<Destination />} />
             <Route path='/crew' element={<Crew />} />
             <Route path='/technology' element={<Technology />} />

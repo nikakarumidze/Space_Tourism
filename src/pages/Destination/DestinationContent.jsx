@@ -59,7 +59,13 @@ const DestinationContent = (props) => {
           display='flex'
           flexDirection='column'
           alignItems={{ xs: 'center', md: 'start' }}
-          sx={{ mx: { xs: '80px !important', md: '0 !important' } }}
+          sx={{
+            mx: {
+              xs: '30px !important',
+              sm: '50px !important',
+              md: '0 !important',
+            },
+          }}
         >
           <ToggleButtonGroup
             value={current}
