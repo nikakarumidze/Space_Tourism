@@ -1,6 +1,9 @@
 This is a mobile-first website about Space Tourism, with several pages.
 Responsive for mobile, tablet and desktop.
 
+# Deploy website:
+https://nikakarumidze.github.io/Space_Tourism/
+
 Technologies used:
 React, React Router, Context API (state management), Material UI (for design).
 
