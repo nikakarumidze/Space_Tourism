@@ -35,7 +35,7 @@ function App() {
         <Header />
         <Box sx={{ mx: { xs: 2, md: 3, lg: 4 } }}>
           <Routes>
-            <Route index element={<Main />} />
+            <Route path='/' element={<Main />} />
             <Route path='/destination' element={<Destination />} />
             <Route path='/crew' element={<Crew />} />
             <Route path='/technology' element={<Technology />} />
