@@ -9,14 +9,25 @@ const Main = (props) => {
       justifyContent='space-between'
       sx={{ py: { xs: 0, md: 8 } }}
     >
-      <Grid item xs={12} lg={5} sx={{ m: 5 }}>
-        <Typography variant='h4' component='h2' sx={{ color: 'white' }}>
+      <Grid
+        container
+        item
+        xs={12}
+        md={5}
+        justifyContent={{ xs: 'center', md: 'start' }}
+        sx={{ m: 5 }}
+      >
+        <Typography
+          variant='h4'
+          component='h2'
+          sx={{ color: 'secondary.main' }}
+        >
           SO, YOU WANT TO TRAVEL TO
         </Typography>
         <Typography variant='h1' align='center' sx={{ color: 'white', my: 2 }}>
           SPACE
         </Typography>
-        <Typography variant='body2' sx={{ color: 'white' }}>
+        <Typography variant='body2' sx={{ color: 'secondary.main' }}>
           Let’s face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind of on the edge of it. Well sit
           back, and relax because we’ll give you a truly out of this world
@@ -26,14 +37,17 @@ const Main = (props) => {
       <Grid
         item
         xs={12}
-        lg={5}
+        md={5}
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <Link to='/destination' onClick={() => props.onURLChange('/destination')}>
+        <Link
+          to='/destination'
+          onClick={() => props.onURLChange('/destination')}
+        >
           <Box
             sx={{
               width: 274,
