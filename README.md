@@ -1,4 +1,4 @@
-This is a mobile-first website about Space Tourism Website, with several pages.
+This is a mobile-first website about Space Tourism, with several pages.
 Responsive for mobile, tablet and desktop.
 
 Technologies used:
